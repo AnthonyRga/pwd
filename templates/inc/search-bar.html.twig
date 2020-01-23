@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+    <div class="container">
+
+{{ form(search_form) }}
+
+    {% if app.request.method == 'POST' %}
+    {% if articles |length == 0 %}
+    <h1>Aucun résultat</h1>
+    {% else %}
+    <h1>Résultat {{ articles | length }}</h1>
+    {% endif %}
+    <div class="row">
+    {% for article in articles %}
+        <div class="col">
+            <a href="{{ path('article-id',{id: article.id}) }}">
+                <div class="card">
+                    <img class="card-img-top" src="{{ asset('uploads/' ~ article.image) }}" alt="vape-image">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="far fa-star"></i> {{ article.name }} {{ article.model }} </li>
+                        <li class="list-group-item"><i class="fas fa-euro-sign"></i> Prix de {{ article.price }}</li>
+                        <li class="list-group-item"><i class="fas fa-bong"></i> {{ article.capacity }} ml - <i class="fas fa-battery-full"></i> {{ article.autonomy }} mha</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+
+    </div>
+{% endblock %}

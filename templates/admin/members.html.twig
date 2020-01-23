@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+    <div class="container">
+        <a href="/pwd/admin" class="btn btn-nav btn-bot">Retour Admin</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Supprimer</th>
+            </tr>
+            </thead>
+            {% for user in users %}
+            <tbody>
+            <tr>
+                <td>{{ user.username}}</td>
+                <td>{{ user.email}}</td>
+                <td><a style="background-color:crimson;color:white;" href="{{ path('removeUser',{id: user.id}) }}">DELETE</a></td>
+            </tr>
+
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

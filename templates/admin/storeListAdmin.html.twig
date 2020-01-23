@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Vapoteuses Belgique{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+    <div class="container">
+        <a href="/pwd/admin" class="btn btn-nav btn-bot">Retour Admin</a>
+        <div class="row">
+            {% for store in stores %}
+
+                <div class="col">
+                    <a href="{{ path('edit-store',{id: store.id}) }}">
+                        <div class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Magasin : {{ store.name }} </li>
+                                <li class="list-group-item">Province de {{ store.province }}</li>
+                                <li class="list-group-item">Ville de {{ store.ville }}</li>
+                                <li class="list-group-item">Rue {{ store.street }}</li>
+                                <li class="list-group-item">N° {{ store.number }}</li>
+
+                            </ul>
+                        </div>
+                    </a>
+                    <a class="btn btn-danger" style="color:white;" href="{{ path('removeStore',{id: store.id}) }}">Delete</a>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
