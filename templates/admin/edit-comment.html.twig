@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+
+    {{ include('inc/navbar.html.twig') }}
+        <div class="container">
+            {% if app.user.comment == user.comment %}
+            {{ form(form) }}
+            {% else %}
+                <div class="tenor-gif-embed" data-postid="10899016" data-share-method="host" data-width="100%" data-aspect-ratio="1.7777777777777777"><a href="https://tenor.com/view/non-mario-gif-10899016">Non Mario GIF</a> from <a href="https://tenor.com/search/non-gifs">Non GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+            {% endif %}
+        </div>
+
+{% endblock %}
+
+

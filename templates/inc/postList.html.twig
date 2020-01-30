@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Vapoteuses Belgique{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+    <div class="container">
+        <div class="box-welcome">
+            <p>Bienvenue sur Vape Directory !</p>
+            <p>Site dédié au référencement des Vapoteuses disponibles en magasin en Belgique.</p>
+            <p>Les cigarettes électroniques peuvent être recherchées selon des critères : prix, capacité en ml, puissance en watts, hauteur en cm, diamètre en cm et autonomie en mha.</p>
+            <p class="kesako">*Qu'est-ce que les mAh ? Il s'agit des milliampères-heures : ils représentent la quantité d'énergie stockée dans une batterie.</p>
+            <a href="{{ path('search-article') }}" class="btn btn-nav">Recherche avancée</a>
+        </div><div class="row">
+{% for article in articles %}
+
+    <div class="col">
+        <a href="{{ path('article-id',{id: article.id}) }}">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('uploads/' ~ article.image) }}" alt="vape-image">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="far fa-star"></i> {{ article.name }} {{ article.model }} </li>
+                    <li class="list-group-item"><i class="fas fa-euro-sign"></i> Prix de {{ article.price }}</li>
+                    <li class="list-group-item"><i class="fas fa-bong"></i> {{ article.capacity }} ml - <i class="fas fa-battery-full"></i> {{ article.autonomy }} mha</li>
+                </ul>
+            </div>
+        </a>
+    </div>
+
+{% endfor %}
+        </div>
+    </div>
+    {{ include('inc/footer.html.twig') }}
+{% endblock %}

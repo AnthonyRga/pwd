@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block title %}Article sélectionné{% endblock %}
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card-article">
+                <img class="img-article" src="{{ asset('uploads/' ~ articles.image) }}" class="card-img-top">
+            </div>
+        </div>
+        <div class="col">
+            <div class="box-desc">
+                <p class="name-model">{{ articles.name }} </p>
+                <p class="name-model">{{ articles.model }} </p>
+
+
+                <p class="price">{{ articles.price }} €</p>
+                <p class="prod-desc">Capacité {{ articles.capacity }} ml</p>
+                <p class="prod-desc">Puissance {{ articles.power }} watts</p>
+                <p class="prod-desc">Hauteur de {{ articles.lenght }} cm</p>
+                <p class="prod-desc">Diamètre de  {{ articles.diameter }} cm</p>
+                <p class="prod-desc">Autonomie de {{ articles.autonomy }} mha</p>
+
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col">
+        <div class="box-shop">
+
+    {% for store in articles.store %}
+        <p>Magasin disponible : <span style="color:#ff652f;">{{ store.name }}</span></p>
+        <p><i class="fas fa-map-marker-alt"></i> Province de {{ store.province }}, à {{ store.ville }}, rue {{ store.street }}, n°{{ store.number }}  </p>
+    {% endfor %}
+        </div></div></div>
+
+
+    <label class="label-com" for="">{{ articles.comments | length }} Commentaire(s) </label>
+
+    {% for comment in articles.comments %}
+        <div class="box-comments">
+            <div class="row">
+                <div class="col-1">
+                    {% if comment.user.sexe == "Homme" %}
+                        <img class="avatar" src="{{asset('asset/image/homme.png')}}" alt="homme">
+                    {% elseif comment.user.sexe == "Femme" %}
+                        <img class="avatar" src="{{asset('asset/image/femme.png')}}" alt="femme">
+                    {% elseif comment.user.sexe == "Anonyme" %}
+                        <img class="avatar" src="{{asset('asset/image/anonymous.png')}}" alt="anonyme">
+                    {% endif %}
+                </div>
+                <div class="col-11">
+                    <a class="link-comments" href="{{ path('user-id',{id: comment.user.id}) }}"><i class="far fa-user"></i> {{ comment.user.username }}</a> <!-- { { app.user.username }} -->
+                    <p class="comments">{{ comment.content }}</p>
+
+                        {% if  is_granted('ROLE_ADMIN') %}
+                            <a class="btn btn-danger butad" style="color:white;margin-top: 18px;" href="{{ path('removeUserComment',{id: comment.id}) }}">Supprimer</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+    {% if app.user %}
+        {{ form_start(commentForm) }}
+        {{ form_row(commentForm.content) }}
+        {{ form_end(commentForm) }}
+    {% else %}
+        <div class="box-comments">
+        <p class="link-comments">Veuillez vous connecter pour poster un commentaire</p>
+        <a class="btn btn-nav" href="{{ path('security-login') }}">Connexion</a>
+        </div>
+    {% endif %}
+
+</div>
+    {{ include('inc/footer.html.twig') }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+
+    <div class="container">
+        <h1>Connexion</h1>
+            <form action="{{ path('security-login') }}" method="post">
+                <div class="form-group col-md-6">
+                <input class="form-control" placeholder="Username" required name="_username" type="text">
+                </div>
+                <div class="form-group col-md-6">
+                <input class="form-control" placeholder="Mot de passe" required name="_password" type="password">
+                </div>
+                <div class="form-group col-md-6">
+                <button class="btn btn-nav" type="submit">Connexion</button>
+                </div>
+            </form>
+    </div>
+    {{ include('inc/footer.html.twig') }}
+{% endblock %}

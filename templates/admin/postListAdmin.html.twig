@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Vapoteuses Belgique{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+    <div class="container">
+        <a href="{{ path('admin') }}" class="btn btn-nav btn-bot">Retour Admin</a>
+        <p>*Cliquer sur l'article pour le modifier</p>
+
+        <div class="row">
+            {% for article in articles %}
+
+                <div class="col">
+                    <a href="{{ path('editBlogPost',{id: article.id}) }}">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ asset('uploads/' ~ article.image) }}" alt="vape-image">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{{ article.name }} </li>
+                                <li class="list-group-item">{{ article.model }}</li>
+                            </ul>
+                        </div>
+                    </a>
+                    <a class="btn btn-danger" style="color:white;" href="{{ path('removeArticle',{id: article.id}) }}">Delete</a>
+                    <a  class="btn btn-success" style="color:white;" href="{{ path('editImage',{id: article.id}) }}">Edit Image</a>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- Home Post List -->
+        {% include '/inc/postList.html.twig' %}
+        <!-- Pager -->
+        <div class="clearfix">
+            <a class="btn btn-primary float-right" href="/startbootstrap-clean-blog-jekyll/posts">View All Posts &rarr;</a>
+        </div>
+    </div>
+
+{% endblock %}
