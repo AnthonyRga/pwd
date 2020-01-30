@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c10329b3-b3c4-4e71-93f9-5b5572acebcb" name="Default Changelist" comment="" />
+    <list default="true" id="c10329b3-b3c4-4e71-93f9-5b5572acebcb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/cache/" />
@@ -276,6 +278,9 @@
       <find>edit</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -422,6 +427,7 @@
     <option name="height" value="1033" />
   </component>
   <component name="ProjectId" id="1S5tf2knSpEObwV5XXPIgXvjkDL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -560,12 +566,12 @@
       <workItem from="1578830444338" duration="11570000" />
       <workItem from="1579735060832" duration="1895000" />
       <workItem from="1580290026096" duration="18502000" />
-      <workItem from="1580375059329" duration="10314000" />
+      <workItem from="1580375059329" duration="10918000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10314000" />
+    <option name="totallyTimeSpent" value="10918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -586,7 +592,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32985386" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.33054394" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
