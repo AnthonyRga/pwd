@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+    <div class="container">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ path('app_admin_new')}}">Ajouter un article</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('list-articles') }}">Gestion article(s)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ path('app_admin_newstore') }}">Ajouter un magasin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ path('list-store') }}">Gestion magasin(s)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('members') }}">Liste des membres</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+

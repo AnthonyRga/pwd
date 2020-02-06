@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+
+    <div class="container">
+        <a href="{{ path('admin') }}" class="btn btn-nav btn-bot">Retour Admin</a>
+        {{ form(form) }}
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+
+<header>
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="{{ path('home')}}">
+            <img src="{{asset('image/logo.png')}}" width="90" height="90" class="d-inline-block align-top" alt="logo"></a>
+        <div class="justify-content-end">
+            <ul>
+
+                {% if  is_granted('ROLE_ADMIN') %}
+                    <a class="btn btn-nav" href="{{ path('admin') }}">Administration</a>
+                {% endif %}
+                {% if not app.user %}
+                <!-- Se connecter -->
+                <a class="btn btn-nav" href="{{ path('security-login') }}">Se connecter</a>
+
+                <!-- S'inscrire-->
+                <a class="btn btn-nav" href="{{ path('security-registration') }}">S'inscrire</a>
+
+                {% else %}
+                <!-- Se deconnecter -->
+                <a class="btn btn-nav" href="{{ path('security-logout') }}">Se déconnecter</a>
+
+                <!-- Connecté en tant que // -->
+                <div class="btn btn-nav"><a href="{{ path('user-id',{id: app.user.id}) }}" class="user"><i class="far fa-user"></i> {{ app.user.username }}</a></div>
+
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+

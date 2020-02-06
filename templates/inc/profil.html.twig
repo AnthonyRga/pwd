@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    {{ include('inc/navbar.html.twig') }}
+    <body id="profil" style="background-image:url('{{ asset('asset/image/photo-1530745342582-0795f23ec976.jpg') }}')">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <h1>Profil</h1>
+                    <p> <i class="fas fa-user-circle"></i> {{ app.user.username }}</p>
+                    <p> <i class="fas fa-at"></i> {{ app.user.email }}</p>
+                    <p> <i id="white" class="far fa-star"></i> Marque préférée : {{ app.user.brand }}</p>
+                    <p> <i class="fas fa-heart"></i> Goût préféré : {{ app.user.taste }}</p>
+                    {% if app.user.id == user.id %}
+
+                    <a class="box-link" href="{{ path('editProfil',{id: app.user.id}) }}">Modifier profil</a>
+                    <a class="box-link" href="{{ path('editPassword',{id: app.user.id}) }}">Réiniatialiser mot de passe</a>
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <h1>Commentaire(s) récent(s)</h1>
+                    {% for comment in user.comments %}
+                        <div class="margintop"></div>
+                        <a class="link-profil" href="{{ path('article-id',{id: comment.article.id}) }}"><i class="far fa-star"></i> {{ comment.article.name }}</a>
+                        <p class="desc-art">{{ comment.content }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+    {{ include('inc/footer.html.twig') }}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
